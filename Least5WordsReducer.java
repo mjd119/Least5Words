@@ -37,7 +37,9 @@ public class Least5WordsReducer extends Reducer<LongWritable,
 
         // we just write 10 records as output
         if (count > 0) {
-            context.write(new LongWritable(no_of_views),
+            // Multiply no_of_views by -1 so we get the actual values
+            // Making the values negative before gives us the least values at the top
+            context.write(new LongWritable(-1 * no_of_views),
                     new Text(movie_name));
             count--;
         }

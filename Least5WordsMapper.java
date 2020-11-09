@@ -20,8 +20,8 @@ public class Least5WordsMapper extends Mapper<Object,
 
         String movie_name = tokens[0];
         long no_of_views = Long.parseLong(tokens[1]);
-
-        no_of_views = (-1) * no_of_views;
+        // Comment out so we don't have the highest values retrieved
+        //no_of_views = (-1) * no_of_views;
 
         context.write(new LongWritable(no_of_views),
                 new Text(movie_name));
